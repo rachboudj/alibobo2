@@ -53,9 +53,11 @@ if (isset($_POST['frmInscription'])) {
         (id_utilisateur, nom, prenom, email, mdp)
         VALUES (NULL, '$nom', '$prenom', '$email', '$mdp1')
         ";
+        echo "Ca marche !!!";
     }
 }
 
 else {
+    $nom = $prenom = $email = "";
     require_once 'frmInscription.php';
 }
