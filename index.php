@@ -1,5 +1,7 @@
 <?php
 
+echo $_SERVER["SERVER_SOFTWARE"];
+
 // Définir le fuseau horaire dans lequel le serveur se trouve
 date_default_timezone_set('Europe/Paris');
 
