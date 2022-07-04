@@ -1,10 +1,7 @@
 <h1>Inscription</h1>
 <?php
 
-
 if (isset($_POST['frmInscription'])) {
-    echo "Je viens du formulaire";
-
     $nom = isset($_POST['nom']) ? htmlentities(trim($_POST['nom'])) : "";
     $prenom = isset($_POST['prenom']) ? htmlentities(trim($_POST['prenom'])) : "";
     $email = isset($_POST['email']) ? htmlentities(trim($_POST['email'])) : "";
@@ -51,8 +48,7 @@ if (isset($_POST['frmInscription'])) {
         $mdp1 = sha1($mdp1);
         $requeteInscription = "INSERT INTO t_utilisateurs
         (id_utilisateur, nom, prenom, email, mdp)
-        VALUES (NULL, '$nom', '$prenom', '$email', '$mdp1')
-        ";
+        VALUES (NULL, '$nom', '$prenom', '$email', '$mdp1')";
         echo "Ca marche !!!";
     }
 }
