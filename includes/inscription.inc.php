@@ -43,6 +43,8 @@ if (isset($_POST['frmInscription'])) {
         $messageErreurs .= "</ul>";
     
         echo $messageErreurs;
+
+        require_once './includes/frmInscription.php';
     }
 
     else {
