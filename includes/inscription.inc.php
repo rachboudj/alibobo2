@@ -45,22 +45,14 @@ if (isset($_POST['frmInscription'])) {
     }
 
     else {
-        if ($pdo = pdo()) {
-            $mdp1 = sha1($mdp1);
-            $requeteInscription = "INSERT INTO utilisateurs
-                (nom, prenom, email, mdp)
-                VALUES (:nom, :prenom, :email, :mdp)";
-            $query = $pdo->prepare($requeteInscription);
-            $query->bindValue(':nom', $nom, PDO::PARAM_STR);
-            $query->bindValue(':prenom', $prenom, PDO::PARAM_STR);
-            $query->bindValue(':email', $email, PDO::PARAM_STR);
-            $query->bindValue(':mdp', $mdp1, PDO::PARAM_STR);
-            $query->execute();
-        } else {
-            die("Problème PDO");
-        }
+        if (inscrireUtilisateur($nom, $prenom, $email, $mdp1))
+            $message = "Utilisateur inscrit";
+        else
+            $message = "Erreur";
+
+        echo $message;
     
-        echo "<script>window.location.replace('http://localhost:8080/DWWM-Vernon-2022-PHP-Alibobo/')</script>";
+        //echo "<script>window.location.replace('http://localhost:8080/DWWM-Vernon-2022-PHP-Alibobo/')</script>";
     }
 }
 
