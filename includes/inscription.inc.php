@@ -45,14 +45,21 @@ if (isset($_POST['frmInscription'])) {
     }
 
     else {
-        if (inscrireUtilisateur($nom, $prenom, $email, $mdp1))
-            $message = "Utilisateur inscrit";
-        else
-            $message = "Erreur";
+        // Vérification de l'inscription préalable ou non de l'utilisateur
+        if (verifierUtilisateur($email)) {
+            // La fonction verifierUtilisateur() renvoie vrai (il y a déjà une ligne avec cette adresse), pas de traitement
+            echo "Vous êtes déjà inscrit";
+        } else {
+            // La fonction verifierUtilisateur() renvoie faux, donc on procède à l'inscription
+            if (inscrireUtilisateur($nom, $prenom, $email, $mdp1))
+                $message = "Utilisateur inscrit";
+            else
+                $message = "Erreur";
 
-        echo $message;
-    
-        //echo "<script>window.location.replace('http://localhost:8080/DWWM-Vernon-2022-PHP-Alibobo/')</script>";
+            echo $message;
+
+            //echo "<script>window.location.replace('http://localhost:8080/DWWM-Vernon-2022-PHP-Alibobo/')</script>";
+        }
     }
 }
 
