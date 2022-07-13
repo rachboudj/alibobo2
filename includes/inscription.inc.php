@@ -26,8 +26,8 @@ if (isset($_POST['frmInscription'])) {
         array_push($erreurs, "Veuillez saisis deux fois votre mot de passe");
 
     elseif ($mdp1 !== $mdp2) 
-        array_push($erreurs, "Vos mots de passe ne sont pas identiques");
-
+        array_push($erreurs, "Vos mots de passe ne sont pas identiques");       
+                              
     if (count($erreurs) > 0) {
         $messageErreurs = "<ul>";
 

@@ -20,7 +20,7 @@
         <input type="password" id="mdp2" name="mdp2" />
     </div>
     <div>
-        <input type="checkbox" name="cgu_accept_ins" id="cgu" /><label for="cgu">J'accepte les <a href="includes/cgu.php" target="_blank">Conditions Générales d'Utilisation</a></label>
+        <input type="checkbox" name="cgu_accept_ins" id="cgu"required /><label for="cgu" >J'accepte les <a href="includes/cgu.php" target="_blank">Conditions Générales d'Utilisation</a></label>
     </div>
     <div>
         <input type="reset" value="Effacer" />
