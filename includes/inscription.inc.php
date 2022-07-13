@@ -7,6 +7,8 @@ if (isset($_POST['frmInscription'])) {
     $email = isset($_POST['email']) ? htmlentities(trim($_POST['email'])) : "";
     $mdp1 = isset($_POST['mdp1']) ? htmlentities(trim($_POST['mdp1'])) :  "";
     $mdp2 = isset($_POST['mdp2']) ? htmlentities(trim($_POST['mdp2'])) :  "";
+    $cgu = isset($_POST['cgu']) ? $_POST['cgu'] :  "";
+
 
     $erreurs = array();
 
@@ -22,29 +24,30 @@ if (isset($_POST['frmInscription'])) {
     elseif (!(filter_var($email, FILTER_VALIDATE_EMAIL)))
         array_push($erreurs, "Veuillez saisir une adresse mail conforme");
 
-    if (mb_strlen($mdp1) === 0 || mb_strlen($mdp2) === 0) 
+    if (mb_strlen($mdp1) === 0 || mb_strlen($mdp2) === 0)
         array_push($erreurs, "Veuillez saisis deux fois votre mot de passe");
 
-    elseif ($mdp1 !== $mdp2) 
+    elseif ($mdp1 !== $mdp2)
         array_push($erreurs, "Vos mots de passe ne sont pas identiques");
+
+    if (empty($_POST['cgu']))
+        array_push($erreurs,  "Vous n'êtes pas d'accord avec les conditions de service");
 
     if (count($erreurs) > 0) {
         $messageErreurs = "<ul>";
 
-        for ($i = 0 ; $i < count($erreurs) ; $i++) {
+        for ($i = 0; $i < count($erreurs); $i++) {
             $messageErreurs .= "<li>";
             $messageErreurs .= $erreurs[$i];
             $messageErreurs .= "</li>";
         }
-    
+
         $messageErreurs .= "</ul>";
-    
+
         echo $messageErreurs;
 
         require_once './includes/frmInscription.php';
-    }
-
-    else {
+    } else {
         // Vérification de l'inscription préalable ou non de l'utilisateur
         if (verifierUtilisateur($email)) {
             // La fonction verifierUtilisateur() renvoie vrai (il y a déjà une ligne avec cette adresse), pas de traitement
@@ -61,9 +64,7 @@ if (isset($_POST['frmInscription'])) {
             //echo "<script>window.location.replace('http://localhost:8080/DWWM-Vernon-2022-PHP-Alibobo/')</script>";
         }
     }
-}
-
-else {
-    $nom = $prenom = $email = "";
+} else {
+    $nom = $prenom = $email = $cgu = "";
     require_once 'frmInscription.php';
 }
