@@ -20,6 +20,9 @@
         <input type="password" id="mdp2" name="mdp2" />
     </div>
     <div>
+        <input type="checkbox" name="cgu" id="cgu" value="1"<?=isset($_POST['cgu'])?"checked":'';?> /><label for="cgu" >J'accepte les <a href="index.php?page=cgu" target="_blank">Conditions Générales d'Utilisation</a></label>
+    </div>
+    <div>
         <input type="reset" value="Effacer" />
         <input type="submit" value="Envoyer" />
     </div>
