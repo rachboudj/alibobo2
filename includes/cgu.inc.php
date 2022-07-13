@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <h2>Définitions</h2>
                 <p><b>Client :</b> tout professionnel ou personne physique capable au sens des articles 1123 et suivants du Code civil, ou personne morale, qui visite le Site objet des présentes conditions générales.<br>
                 <b>Prestations et Services :</b> <a href="https://www.alibobo">https://www.alibobo</a> met à disposition des Clients :</p>
