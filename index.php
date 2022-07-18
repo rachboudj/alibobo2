@@ -7,7 +7,6 @@ require './vendor/autoload.php';
 
 $truc = 'hello';
 
-dump($truc); 
 // Définir le fuseau horaire dans lequel le serveur se trouve
 date_default_timezone_set('Europe/Paris');
 
