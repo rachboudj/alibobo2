@@ -9,6 +9,11 @@
 </head>
 <body>
     <header>
+        <?php
+        if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])) {
+            echo "<p>Bonjour " . $_SESSION['prenom'] . " " . $_SESSION['nom'] . "</p>";
+        }
+        ?>
         <nav>
             <ul>
                 <li><a href="index.php?page=accueil">Accueil</a></li>
