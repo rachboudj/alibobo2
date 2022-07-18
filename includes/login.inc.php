@@ -33,8 +33,12 @@ if (isset($_POST['frmLogin'])) {
         require './includes/frmLogin.php';
 
     } else {
-
-        echo "Tout est OK";
+        if (verifierLogin($email,$mdp)) {
+            $_SESSION['login'] = true;
+            echo "<script>window.location.replace('http://localhost:8080/DWWM-Vernon-2022-PHP-Alibobo/')</script>";
+        } else {
+            echo "Erreur dans votre login/password";
+        }
     }
 
 } else {
