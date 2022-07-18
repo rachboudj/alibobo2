@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+$_SESSION['message'] = "Il fait chaud";
+
 require_once './functions/autoLoad.php';
 autoLoad("*.php");
 
