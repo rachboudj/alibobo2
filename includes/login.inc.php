@@ -34,6 +34,14 @@ if (isset($_POST['frmLogin'])) {
 
     } else {
         if (verifierLogin($email,$mdp)) {
+            $recupDatasUser = "SELECT prenom, nom FROM utilisateurs WHERE email='$email'";
+            if ($pdo = pdo()) {
+                $datasUser = $pdo->query($recupDatasUser);
+                $datasUser = $datasUser->fetchAll();
+                $_SESSION['prenom'] = $datasUser[0]['prenom'];
+                $_SESSION['nom'] = $datasUser[0]['nom'];
+            }
+
             $_SESSION['login'] = true;
             echo "<script>window.location.replace('http://localhost:8080/DWWM-Vernon-2022-PHP-Alibobo/')</script>";
         } else {
