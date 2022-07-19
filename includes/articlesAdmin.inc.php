@@ -3,20 +3,23 @@
 // Affichage des articles pour les utilisateurs connectés avec les droits admin
 
 if (verifierAdmin()) {
-    if ($pdo = pdo()) {
-        $requeteArticles = "SELECT * FROM articles ORDER BY designation ASC";
+    if ($pdo = pdo()) { 
+        $champ = $_GET['champ'] ?? "designation";
+        $orderby = $_GET['orderby'] ?? "asc";
+
+        $requeteArticles = "SELECT * FROM articles ORDER BY $champ $orderby";
 
         $tableauResultats = "<table>";
         $tableauResultats .= "<thead>";
         $tableauResultats .= "<tr>";
         $tableauResultats .= "<th>";
-        $tableauResultats .= "Catégorie";
+        $tableauResultats .= genererUrl('Catégories', 'categorie', $champ, $orderby);
         $tableauResultats .= "</th>";
         $tableauResultats .= "<th>";
         $tableauResultats .= "Référence";
         $tableauResultats .= "</th>";
         $tableauResultats .= "<th>";
-        $tableauResultats .= "Désignation";
+        $tableauResultats .= genererUrl('Désignation', 'designation', $champ, $orderby);;
         $tableauResultats .= "</th>";
         $tableauResultats .= "<th>";
         $tableauResultats .= "PUHT";
@@ -43,7 +46,7 @@ if (verifierAdmin()) {
             $tableauResultats .= "<tr>";
             $tableauResultats .= "<td>" . $row['id_categorie'] . "</td>";
             $tableauResultats .= "<td>" . $row['reference'] . "</td>";
-            $tableauResultats .= "<td>" . $row['designation'] . "</td>";
+            $tableauResultats .= "<td><a href=\"index.php?page=articleDetailAdmin&amp;articleId=" . $row['id_article'] . "\">" . $row['designation'] . "</a></td>";
             $tableauResultats .= "<td>" . $row['puht'] . "</td>";
             $tableauResultats .= "<td>" . $row['id_tva'] . "</td>";
             $tableauResultats .= "<td>" . $row['masse'] . "</td>";
