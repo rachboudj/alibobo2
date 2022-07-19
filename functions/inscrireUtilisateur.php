@@ -1,10 +1,9 @@
 <?php
 
 function inscrireUtilisateur(string $nom, string $prenom, string $email, string $mdp): bool {
-    $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+    $mdp = sha1($mdp);
 
-    if ( $pdo = pdo()) {
-       
+    if ($pdo = pdo()) {
         $requeteInscription = "INSERT INTO utilisateurs
         (nom, prenom, email, mdp)
         VALUES (:nom, :prenom, :email, :mdp)";

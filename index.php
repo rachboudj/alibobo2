@@ -1,19 +1,15 @@
 <?php
 
-require_once './functions/autoLoad.php';
-autoLoad("*.php");
+session_start();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-require __DIR__ . 'vendor/autoload.php';
-=======
 require __DIR__ . '/vendor/autoload.php';
->>>>>>> e8d153eeb8fecbc334d9be6b00a3942b2c1f67e9
-=======
-require './vendor/autoload.php';
+require_once './functions/autoload.php';
+autoload("*.php");
 
-$truc = 'hello';
->>>>>>> feature/Login
+$toto ="toto";
+dump($toto);
+
+
 
 // Définir le fuseau horaire dans lequel le serveur se trouve
 date_default_timezone_set('Europe/Paris');
