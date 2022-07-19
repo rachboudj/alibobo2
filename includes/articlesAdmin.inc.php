@@ -31,16 +31,32 @@ if (verifierAdmin()) {
         $tableauResultats .= "Quantité en stock";
         $tableauResultats .= "</th>";
         $tableauResultats .= "<th>";
-        $tableauResultats .= "Stocke de sécurité";
+        $tableauResultats .= "Stock de sécurité";
         $tableauResultats .= "</th>";
         $tableauResultats .= "</tr>";
         $tableauResultats .= "</thead>";
-
         $tableauResultats .= "<tbody>";
-        $tableauResultats .= "</tbody>";
 
+        $resultatRequeteArticles = $pdo->query($requeteArticles)->fetchAll();
+
+        foreach($resultatRequeteArticles as $row) {
+            $tableauResultats .= "<tr>";
+            $tableauResultats .= "<td>" . $row['id_categorie'] . "</td>";
+            $tableauResultats .= "<td>" . $row['reference'] . "</td>";
+            $tableauResultats .= "<td>" . $row['designation'] . "</td>";
+            $tableauResultats .= "<td>" . $row['puht'] . "</td>";
+            $tableauResultats .= "<td>" . $row['id_tva'] . "</td>";
+            $tableauResultats .= "<td>" . $row['masse'] . "</td>";
+            $tableauResultats .= "<td>" . $row['id_categorie'] . "</td>";
+            $tableauResultats .= "<td>" . $row['qtestock'] . "</td>";
+            $tableauResultats .= "<td>" . $row['qtestocksecu'] . "</td>";
+            $tableauResultats .= "</tr>";
+        }
+
+        $tableauResultats .= "</tbody>";
         $tableauResultats .= "</table>";
 
+        echo $tableauResultats;
 
     } else {
         echo "<p>Erreur PDO</p>";
