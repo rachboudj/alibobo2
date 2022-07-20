@@ -3,6 +3,7 @@
 function autoInclude(string $file): void {
     // Récupération de tous les fichiers du répertoire 'includes' qui ont la double extension .inc.php
     $includedFiles = glob("./includes/*.inc.php");
+    var_dump($includedFiles);
     // Concaténation du nom de fichier avec le chemin et l'extension
     $file = "./includes/" . $file . ".inc.php";
 

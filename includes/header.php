@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alibobo</title>
     <link href="./assets/css/style.css" rel="stylesheet" />
+    <script src="../assets/js/timer.js"></script>
 </head>
 <body>
     <header>
