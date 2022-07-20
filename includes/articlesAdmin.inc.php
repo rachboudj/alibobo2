@@ -2,6 +2,7 @@
 
 // Affichage des articles pour les utilisateurs connectés avec les droits admin
 
+
 if (verifierAdmin()) {
     if ($pdo = pdo()) { 
         $champ = $_GET['champ'] ?? "designation";
@@ -52,7 +53,7 @@ if (verifierAdmin()) {
             $tableauResultats .= "<td>" . $row['masse'] . "</td>";
             $tableauResultats .= "<td>" . $row['id_categorie'] . "</td>";
             $tableauResultats .= "<td>" . $row['qtestock'] . "</td>";
-            $tableauResultats .= "<td>" . $row['qtestocksecu'] . "</td>";
+            $tableauResultats .= "<td>" . $row['qtestockesecu'] . "</td>";
             $tableauResultats .= "</tr>";
         }
 

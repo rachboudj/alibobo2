@@ -2,12 +2,13 @@
 
 session_start();
 
+
 require __DIR__ . '/vendor/autoload.php';
 require_once './functions/autoload.php';
 autoload("*.php");
 
-$toto ="toto";
-dump($toto);
+// $toto ="toto";
+// dump($toto);
 
 
 
@@ -18,6 +19,11 @@ date_default_timezone_set('Europe/Paris');
 * include renvoie un avertissement simple en cas d'erreur
 * require renvoie une erreur fatale et arrête l'exécution du script
 */
-require_once './includes/header.php';
+
+if (verifierAdmin()) 
+    require_once './includes/headerAdmin.php';
+else 
+    require_once './includes/header.php';
+
 require_once './includes/main.php';
 require_once './includes/footer.php';
