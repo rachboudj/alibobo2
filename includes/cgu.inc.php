@@ -1,6 +1,6 @@
 <h1>Définitions</h1>
 
-<a href="cgu.pdf" target='new'>ouverture et imp du fichier monfichier.pdf</a>
+<a href="./asset/pdf/cgu.pdf" target='new'>ouverture et imp du fichier monfichier.pdf</a>
 
 <p><b>Client :</b> tout professionnel ou personne physique capable au sens des articles 1123 et suivants du Code civil, ou personne morale, qui visite le Site objet des présentes conditions générales.<br>
     <b>Prestations et Services :</b> <a href="https://www.alibobo">https://www.alibobo</a> met à disposition des Clients :
