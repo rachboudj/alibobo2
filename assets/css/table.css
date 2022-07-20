@@ -8,3 +8,6 @@ th {
     text-align: center;
 }
 
+td.alignRight, th.alignRight {
+    text-align: right;
+}
