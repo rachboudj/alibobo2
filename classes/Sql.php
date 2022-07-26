@@ -21,15 +21,28 @@ class Sql
         }
     }
 
-    public function inserer(string $sql): bool
+    public function inserer(string $sql, bool $bind = false, array $bindArray): bool
     {
-        if ($this->connexion->exec($sql))
-            return true;
-        else
-            return false;
+        if ($bind) {
+            $query = $this->connexion->prepare($sql);
+
+            foreach($bindArray as $key => $value) {
+                $query->bindParam(":$key", $value[0], $value[1]);
+            }
+
+            if ($query->execute())
+                return true;
+            else
+                return false;
+        } else {
+            if ($this->connexion->exec($sql))
+                return true;
+            else
+                return false;
+        }
     }
 
-    public function select(string $sql, bool|int $count = false): array|int
+    public function select(string $sql, bool $count = false): array|int
     {  
         if (!$count)
         {
