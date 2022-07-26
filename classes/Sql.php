@@ -50,7 +50,11 @@ class Sql
 
     public function delete(string $sql): bool
     {
-
+        $resultatDelete = $this->connexion->prepare($sql)->execute();
+        if ($resultatDelete->rowCount() > 0)
+            return true;
+        else
+            return false;
     }
 
     public function __destruct()
