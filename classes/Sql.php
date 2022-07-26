@@ -23,7 +23,10 @@ class Sql
 
     public function inserer(string $sql): bool
     {
-
+        if ($this->connexion->exec($sql))
+            return true;
+        else
+            return false;
     }
 
     public function select(string $sql, bool|int $count = false): array|int
@@ -40,7 +43,7 @@ class Sql
     {
 
     }
-    
+
     public function __destruct()
     {   
         if (isset($this->connexion))
