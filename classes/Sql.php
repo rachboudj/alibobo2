@@ -30,7 +30,16 @@ class Sql
     }
 
     public function select(string $sql, bool|int $count = false): array|int
-    {
+    {  
+        if (!$count)
+        {
+            $resultat = $this->connexion->query($sql)->fetchAll();
+            return $resultat;
+        }
+        else {
+            $nbrResultat = $this->connexion->query($sql)->fetchColumn();
+            return $nbrResultat;
+        }
 
     }
 
