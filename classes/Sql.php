@@ -21,8 +21,29 @@ class Sql
         }
     }
 
+    public function inserer(string $sql): bool
+    {
+
+    }
+
+    public function select(string $sql, bool|int $count = false): array|int
+    {
+
+    }
+
+    public function update (string $sql): bool
+    {
+
+    }
+
+    public function delete(string $sql): bool
+    {
+
+    }
+    
     public function __destruct()
-    {   if (isset($this->connexion))
+    {   
+        if (isset($this->connexion))
             $this->connexion = null;
     }
 }
