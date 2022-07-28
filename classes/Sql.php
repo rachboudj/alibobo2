@@ -4,8 +4,8 @@ class Sql
 {
     private string $serverName = "localhost";
     private string $userName = "root";
-    private string $userPassword = "";
-    private string $database = "alibobo";
+    private string $userPassword = "root";
+    private string $database = "alibobo2";
     private object $connexion;
 
     public function __construct()
