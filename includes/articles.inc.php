@@ -25,3 +25,4 @@ for ($i = 0 ; $i < count($resultatCaterogies) ; $i++) {
 $menuCategories .= "<ul>";
 
 echo $menuCategories;
+
