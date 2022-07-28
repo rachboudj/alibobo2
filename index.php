@@ -20,7 +20,7 @@ autoLoad("*.php");
 // $toto = new Sql();
 // $requeteTest = "INSERT INTO utilisateurs (nom, prenom, email, role) VALUES (:nom, :prenom, :email, :role)";
 
-// if ($toto->inserer($requeteTest, true, $bindArray)) 
+// if ($toto->inserer($requeteTest, $bindArray, true)) 
 //     echo "Wesh t'es dans la BDD";
 // else
 //     echo "Môrche pô";
