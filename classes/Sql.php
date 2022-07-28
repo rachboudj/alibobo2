@@ -21,7 +21,8 @@ class Sql
         }
     }
 
-    public function inserer(string $sql, bool $bind = false, array $bindArray): bool
+    // Depuis PHP 8, les paramètres optionnels doivent être placés en dernier
+    public function inserer(string $sql, array $bindArray, bool $bind = false): bool
     {
         if ($bind) {
             $query = $this->connexion->prepare($sql);
