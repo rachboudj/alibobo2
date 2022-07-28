@@ -26,3 +26,28 @@ $menuCategories .= "<ul>";
 
 echo $menuCategories;
 
+if (isset($_GET['id_categorie'])) {
+    $id_categorie = $_GET['id_categorie'];
+
+    $requeteArticlesParCategorie = "
+        SELECT *
+        FROM articles
+        WHERE id_categorie = $id_categorie
+        ORDER BY designation
+    ";
+
+    $connexionArticles = new Sql();
+    $resultatArticles = $connexionArticles->select($requeteArticlesParCategorie);
+
+    $articles = "<ul>";
+
+    for ($i = 0 ; $i < count($resultatArticles) ; $i++) {
+        $articles .= "<li>";
+        $articles .= $resultatArticles[$i]['designation'];
+        $articles .= "</li>";
+    }
+
+    $articles .= "</ul>";
+
+    echo $articles;
+}
