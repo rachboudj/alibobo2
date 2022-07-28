@@ -10,20 +10,20 @@ require_once './functions/autoLoad.php';
 autoLoad("*.php");
 
 
-$bindArray = array(
-    "nom" => array("DUCON", PDO::PARAM_STR),
-    "prenom" => array("Michel", PDO::PARAM_STR), 
-    "email" => array("michel@groscon.com", PDO::PARAM_STR), 
-    "role" => array("client", PDO::PARAM_STR)
-);
+// $bindArray = array(
+//     "nom" => array("DUCON", PDO::PARAM_STR),
+//     "prenom" => array("Michel", PDO::PARAM_STR), 
+//     "email" => array("michel@groscon.com", PDO::PARAM_STR), 
+//     "role" => array("client", PDO::PARAM_STR)
+// );
 
-$toto = new Sql();
-$requeteTest = "INSERT INTO utilisateurs (nom, prenom, email, role) VALUES (:nom, :prenom, :email, :role)";
+// $toto = new Sql();
+// $requeteTest = "INSERT INTO utilisateurs (nom, prenom, email, role) VALUES (:nom, :prenom, :email, :role)";
 
-if ($toto->inserer($requeteTest, true, $bindArray)) 
-    echo "Wesh t'es dans la BDD";
-else
-    echo "Môrche pô";
+// if ($toto->inserer($requeteTest, true, $bindArray)) 
+//     echo "Wesh t'es dans la BDD";
+// else
+//     echo "Môrche pô";
 
 
 
